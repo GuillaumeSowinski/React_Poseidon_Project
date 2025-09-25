@@ -2,8 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/questions.scss';
 import { Container } from 'react-bootstrap';
 import { QuizProvider } from './context/QuizContext';
-import { FilterQuiz } from './FilterQuiz';
-import { QuizAccordion } from './QuizAccordion';
+import { FilterQuiz } from './component/FilterQuiz';
+import { QuizAccordion } from './component/QuizAccordion';
 
 function App() {
   return (

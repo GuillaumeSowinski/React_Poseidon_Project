@@ -1,5 +1,5 @@
 import { Card, Button } from 'react-bootstrap';
-import { useQuiz } from './context/QuizContext';
+import { useQuiz } from '../context/QuizContext';
 
 export function QuestionItem({ question }) {
     const { dispatch } = useQuiz();

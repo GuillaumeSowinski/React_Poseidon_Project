@@ -1,7 +1,7 @@
 import { Accordion } from 'react-bootstrap';
 import { QuestionItem } from './QuestionItem';
-import { useQuiz } from './context/QuizContext';
-import './styles/quizzAccordion.scss';
+import { useQuiz } from '../context/QuizContext';
+import '../styles/quizzAccordion.scss';
 
 export function QuizAccordion() {
     const { state } = useQuiz();

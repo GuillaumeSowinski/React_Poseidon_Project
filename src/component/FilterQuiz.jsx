@@ -1,6 +1,6 @@
 import { Form } from "react-bootstrap";
-import './styles/filterCategory.scss';
-import { useQuiz } from './context/QuizContext';
+import '../styles/filterCategory.scss';
+import { useQuiz } from '../context/QuizContext';
 
 export function FilterQuiz() {
   const { state, dispatch } = useQuiz();
