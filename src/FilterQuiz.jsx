@@ -1,11 +1,13 @@
-import { Form } from "react-bootstrap"
-import './styles/filterCategory.scss'
+import { Form } from "react-bootstrap";
+import './styles/filterCategory.scss';
+import { useQuiz } from './context/QuizContext';
 
-export function FilterQuiz({ selectedCategory, setSelectedCategory }) {
+export function FilterQuiz() {
+  const { state, dispatch } = useQuiz();
   return (
     <Form.Select
-      value={selectedCategory}
-      onChange={event => setSelectedCategory(event.target.value)}
+      value={state.selectedCategory}
+      onChange={event => dispatch({ type: 'SET_CATEGORY', category: event.target.value })}
     >
       <option>Toutes</option>
       <option>Math</option>

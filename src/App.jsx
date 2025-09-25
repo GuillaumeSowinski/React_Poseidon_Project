@@ -1,41 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
-import { Questions } from "./Questions"
-import { FilterQuiz } from './FilterQuiz';
+import './styles/questions.scss';
 import { Container } from 'react-bootstrap';
+import { QuizProvider } from './context/QuizContext';
+import { FilterQuiz } from './FilterQuiz';
+import { QuizAccordion } from './QuizAccordion';
 
 function App() {
-  const questions = [
-    {
-      id: 1,
-      category: "Math",
-      question: "Combien font 2+2 ?",
-      answer: "4",
-      validation: null,
-    },
-    {
-      id: 2,
-      category: "Science",
-      question: "Quelle est la formule de l'eau ?",
-      answer: "H2O",
-      validation: null,
-    },
-    {
-      id: 3,
-      category: "Histoire",
-      question: "Qui a découvert l'Amérique ?",
-      answer: "Christophe Colomb",
-      validation: null,
-    },
-  ];
-
-  const [selectedCategory, setSelectedCategory] = useState('Toutes');
-
-  const filteredQuestions = selectedCategory === 'Toutes' ? questions : questions.filter(question => question.category === selectedCategory);
-
   return (
-    <>
-
+    <QuizProvider>
       <header>
         <Container>
           <h1>Quiz Interactif</h1>
@@ -43,18 +15,12 @@ function App() {
       </header>
       <main>
         <Container>
-          <FilterQuiz selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
-          {filteredQuestions.map((question) => (
-            <Questions
-              key={question.id}
-              question={question.question}
-              answer={question.answer}
-              validation={question.validation}
-            />
-          ))}
+          <p className='mb-1'>Filtrer par catégorie</p>
+          <FilterQuiz />
+          <QuizAccordion />
         </Container>
-      </main >
-    </>
+      </main>
+    </QuizProvider>
   );
 }
 
